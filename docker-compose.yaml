@@ -41,18 +41,6 @@ services:
     networks:
       - laravel
 
-  node:
-    build:
-      context: dockerfiles
-      dockerfile: node.Dockerfile
-    volumes:
-      - ./src:/var/www/laravel
-    ports:
-      - "5173:5173"
-    networks:
-      - laravel
-    command: sh -c "npm install && npm run dev -- --host --port 5173"
-
   artisan:
     build:
       context: dockerfiles
