@@ -39,6 +39,11 @@
         <ul class="list-unstyled list-group list-group-flush  custom-bg">
             <li class="list-group-item"><a href="{{route('home')}}" class="d-block py-2">Головна</a></li>
             <li class="list-group-item"><a href="#" class="d-block py-2">Задачі</a></li>
+            @auth
+                @if(auth()->user()->role === 'admin')
+                    <li class="list-group-item"><a href="{{ route('admin.dashboard') }}" class="d-block py-2">Адмін панель</a></li>
+                @endif
+            @endauth
             @if (Route::has('login'))
                 @auth
                     <li class="list-group-item">
