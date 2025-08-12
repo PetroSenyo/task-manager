@@ -41,12 +41,22 @@
             <li class="list-group-item"><a href="#" class="d-block py-2">Задачі</a></li>
             @if (Route::has('login'))
                 @auth
-                    <li class="list-group-item"><a href="{{route('logout')}}" class="d-block py-2">Вийти</a></li>
+                    <li class="list-group-item">
+                        <a href="{{ route('logout') }}" class="d-block py-2"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Вийти
+                        </a>
+                    </li>
                 @else
                     <li class="list-group-item"><a href="{{route('login')}}" class="d-block py-2">Увійти</a></li>
                 @endauth
             @endif
 
         </ul>
+        @auth
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+        @endauth
     </nav>
 </div>
