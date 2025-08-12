@@ -2,8 +2,8 @@ docker-compose build
 docker-compose run --rm composer install
 docker-compose run --rm composer create-project laravel/laravel .
 docker-compose up -d
-node npm install
-node npm run dev
+npm install
+npm run dev
 docker-compose run --rm artisan migrate
 docker-compose down
 
