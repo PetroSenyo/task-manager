@@ -43,7 +43,7 @@ services:
 
   node:
     build:
-      context: ./dockerfiles
+      context: dockerfiles
       dockerfile: node.Dockerfile
     volumes:
       - ./src:/var/www/laravel
@@ -51,7 +51,7 @@ services:
       - "5173:5173"
     networks:
       - laravel
-    command: sh -c "npm install && npm run dev -- --host 0.0.0.0 --port 5173"
+    command: sh -c "npm install && npm run dev -- --host --port 5173"
 
   artisan:
     build:
@@ -59,7 +59,7 @@ services:
       dockerfile: php.Dockerfile
     volumes:
       - ./src:/var/www/laravel
-    entrypoint: ["php", "/var/www/laravel/artisan"]
+    entrypoint: [ "php", "/var/www/laravel/artisan" ]
     networks:
       - laravel
 
