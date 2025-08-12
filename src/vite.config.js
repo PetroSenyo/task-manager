@@ -11,17 +11,16 @@ export default defineConfig({
         tailwindcss(),
     ],
     server: {
-        // усередині контейнера Vite слухає всі інтерфейси
-        host: true,        // еквівалент --host
+        host: true,
         port: 5173,
         strictPort: true,
-        cors: true,        // дозволяє крос-домени з :8000
-        origin: 'http://localhost:5173', // що підставлятиметься у <script href=...>
+        cors: true,
+        origin: 'http://localhost:5173',
         hmr: {
-            host: 'localhost', // куди підключається клієнт HMR із браузера на Windows
+            host: 'localhost',
             port: 5173,
             protocol: 'ws',
-            clientPort: 5173,  // важливо для Windows/WSL
+            clientPort: 5173,
         },
     },
 });

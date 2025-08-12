@@ -43,7 +43,7 @@ services:
 
   node:
     build:
-      context: ./dockerfiles
+      context: dockerfiles
       dockerfile: node.Dockerfile
     volumes:
       - ./src:/var/www/laravel
